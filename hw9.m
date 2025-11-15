@@ -8,14 +8,14 @@ A = max(x) - min(x); % find amplitude
 a0 = mean(x); % find mean
 
 Ts = 0.01;           % sampling period (s)
-
+Fs = 1/Ts;
 % Result: estimate is 9-10 samples, so 90-100 ms
 
 %% 2) Choose a section of 1000 consecutive data points in the time domain 
 % for the fft analysis. For simplicity, you can use fdomain.m provided, 
 % i.e. [X,f]=fdomain(x,Fs)and plot magnitude |𝑋| vs. f in Hz. Also include
 % a plot of |X| vs. k (-500 to 499), the DFT index
-N1 = 200;
+N1 = 1;
 N2 = N1 + 999;
 x_selected = x(N1:N2);
 [X,f] = fdomain(x_selected,1./Ts);
@@ -59,7 +59,7 @@ w = hann(1000);
 % Apply hanning window to data
 x_hann = w .* x_selected;
 % FFT that shit
-[X_hann, f] = fdomain(x_hann, f0);
+[X_hann, f] = fdomain(x_hann, Fs);
 figure('Name','Hanning Window Plots');
 subplot(2,1,1);
 hold on
