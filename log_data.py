@@ -6,7 +6,7 @@ import serial  # pip install pyserial
 
 SERIAL_PORT = "/dev/ttyACM0"   # change as needed
 BAUD_RATE   = 115200
-OUTFILE     = "comb_filter.csv"
+OUTFILE     = "actual_comb_filter.csv"
 TIMEOUT_S   = 0.01
 DURATION_S  = 2.0
 
